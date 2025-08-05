@@ -1,0 +1,10 @@
+MODULE.bazel.lock
+
+/bazel-bin
+/bazel-minecraft_dye_search
+/bazel-out
+/bazel-testlogs
+
+/.vscode
+
+*.pdb
