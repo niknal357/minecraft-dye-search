@@ -14,7 +14,8 @@ ReachabilityCalculator::ReachabilityCalculator() :
 	reachability(1u << 24, ReachabilityInstruction {}) {
 	std::vector<MCColor> initialColors;
 	initialColors.reserve(8);
-	searchColors(7, 15, 0, Color::INVALID, initialColors, ColorAccumulator {}, nullptr);
+    ColorAccumulator acc;
+	searchColors(7, 15, 0, Color::INVALID, initialColors, acc, nullptr);
 	std::swap(updatedA, updatedB);
 }
 
@@ -60,13 +61,14 @@ bool ReachabilityCalculator::calculate() {
 				std::vector<MCColor> colors;
 				colors.reserve(8);
 
+                ColorAccumulator acc = {Color{i}};
 				bool localUpdated = searchColors(
 					7,
 					15,
 					reachability[i].cost,
 					Color{i},
 					colors,
-					ColorAccumulator{Color{i}},
+					acc,
 					&mutexPool
 				);
 

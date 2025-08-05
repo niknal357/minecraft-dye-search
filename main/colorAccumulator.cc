@@ -1,6 +1,7 @@
 #include "colorAccumulator.h"
 
 #include <cassert>
+#include <algorithm>
 
 ColorAccumulator::ColorAccumulator() {}
 
