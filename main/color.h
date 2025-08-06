@@ -30,37 +30,7 @@ struct Color
 		return !(*this == o);
 	}
 
-	constexpr Color operator+(const Color& o) const {
-		return { static_cast<unsigned char>(r + o.r),
-				 static_cast<unsigned char>(g + o.g),
-				 static_cast<unsigned char>(b + o.b) };
-	}
-
-	constexpr Color operator-(const Color& o) const {
-		return {
-			static_cast<unsigned char>(r - o.r),
-			static_cast<unsigned char>(g - o.g),
-			static_cast<unsigned char>(b - o.b)
-		};
-	}
-
-	constexpr Color operator*(float f) const {
-		return {
-			static_cast<unsigned char>(r * f),
-			static_cast<unsigned char>(g * f),
-			static_cast<unsigned char>(b * f)
-		};
-	}
-
-	constexpr Color operator/(float f) const {
-		return {
-			static_cast<unsigned char>(r / f),
-			static_cast<unsigned char>(g / f),
-			static_cast<unsigned char>(b / f)
-		};
-	}
-
-	[[nodiscard]] constexpr uint32_t toUint() const {
+	constexpr uint32_t toUint() const {
 		return (static_cast<uint32_t>(r) << 16) |
 			   (static_cast<uint32_t>(g) <<  8) |
 			   static_cast<uint32_t>(b);
